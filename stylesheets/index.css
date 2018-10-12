@@ -17,18 +17,39 @@ html, body {
 /* resize images */
 .thumbnail-item{
 /* controls the size of the image  */
-width: 150px;
 height: 150px;
+width: 30%;
+margin-bottom: 20px;
+outline: 1px solid red;
+
+text-align: center;
 }
 
 .thumbnail-item > img {
     /* the img adapts to its parent */
     /* choose either the height or width, not both */
-    width: 100%;
+    max-width:  100%;
+    max-height: 100%;
+
+
 }
 
 
 .thumbnail-container {
     display: flex;
     flex-wrap: wrap;
+
+}
+
+.picture-frame {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.picture-frame > img {
+    /* the img adapts to its parent */
+    /* choose either the height or width, not both */
+    max-width:  100%;
+    max-height: 100%;
 }

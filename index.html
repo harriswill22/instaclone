@@ -11,21 +11,17 @@
 </head>
 <body>
     <h1> InstaClone</h1>
-    <div class="thumbnail-container">
-           <div class="thumbnail-item">
+    <div class="thumbnail-container" data-container>
+           <!-- <div class="thumbnail-item">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg">
            </div>
-    
+
            <div class="thumbnail-item">
             <img src="https://solarsystem.nasa.gov/system/stellar_items/image_files/38_saturn_1600x900.jpg">
            </div>
            <div class="thumbnail-item">
             <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/05/02/11/jupiter-red-spot.jpg?w968h681">
            </div>
-           <div class="thumbnail-item">
-            <img src="https://solarsystem.nasa.gov/system/feature_items/images/82_carousel_neptune_1.jpg">
-           </div>
-           <div class="thumbnail-container">
             <div class="thumbnail-item">
              <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg">
             </div>
@@ -34,16 +30,21 @@
             </div>
             <div class="thumbnail-item">
              <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/05/02/11/jupiter-red-spot.jpg?w968h681">
-            </div>
-            <div class="thumbnail-item">
-             <img src="https://solarsystem.nasa.gov/system/feature_items/images/82_carousel_neptune_1.jpg">
-            </div>
-        </div>
+            </div> -->
+            
+    </div>
+    <!-- i need to generate a .thumbnail-item div  and an img element for every image URLin  my images array. -->
         
 
     <div class="picture-frame">
-    <img src="" alt="">
+    <!-- <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/05/02/11/jupiter-red-spot.jpg?w968h681"> -->
+    <!-- 
+        this is my 'output' for when the user clicks a thumbnail. I wil modify the src attribute and set it to the same src as the thumbnail that got clicked.
+
+     -->
+     <img data-output src="" alt="">
     </div>
+
     <script src="scripts/index.js">
 
     </script>

@@ -5,6 +5,7 @@ const IMAGES =
     "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/05/02/11/jupiter-red-spot.jpg?w968h681",
 ];
 
+const outputElement = document.querySelector('[data-output]');
 // function that generates the thumbnail div 
 // function that generates an img element 
 
@@ -15,8 +16,16 @@ function createImage(imageURL) {
     theImage.setAttribute('src', imageURL);
 
     // add event listener to image
-    theImage.addEventListener('click', function () {
-        console.log('hello!');
+    theImage.addEventListener('click', function (event) {
+        
+        // the element that got clicked is accessible 
+        // as 'event.target
+        console.log(event.target.src);
+        outputElement.setAttribute('src',event.target.src);
+
+    
+
+        // I could can now set the outputElement's src to event.target.src
     });
 
     return theImage;
@@ -32,9 +41,16 @@ function createThumbnail(url) {
 
 }
 
-// just draww the thumbnail to the body 
-let firstImageURL = IMAGES[0];
-let testThumb = createThumbnail(firstImageURL);
+// just draw the thumbnail to the body
+IMAGES.forEach(function (planet){
+// let firstImageURL = IMAGES[2];
+// creates variable for function to receive 
+let testThumb = createThumbnail(planet);
+// displays picture to body
 document.body.appendChild(testThumb);
+});
+
+
+
 
 

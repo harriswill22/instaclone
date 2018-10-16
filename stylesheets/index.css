@@ -77,10 +77,13 @@ text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 200ms ease-in-out;
 
 }
 
 .modal-hidden {
- display: none; 
+ /* display: none;  */
 /* visibility: hidden; */
+/* opacity: 0; */
+transform: scale(0.00001);
 }

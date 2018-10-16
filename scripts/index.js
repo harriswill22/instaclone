@@ -4,6 +4,47 @@ const IMAGES =
     "https://solarsystem.nasa.gov/system/stellar_items/image_files/38_saturn_1600x900.jpg",
     "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/05/02/11/jupiter-red-spot.jpg?w968h681",
 ];
+
+//=======================================================
+// Array "navigation" functions
+// =====================================================
+function getNextImages(currentURL) {
+    // fin the currentURL's index in the IMAGES array 
+    let index = IMAGES.indexOf(currentURL);
+    // TODO: check if index is  -1 at this point
+
+    index++;
+    // increment the index 
+    // check if its within bounds necessary 
+    if (index === IMAGES.length) {
+        index = 0;
+    }
+    // then return the image URL at the new index
+
+    return IMAGES[index];
+
+}
+
+function getPrevImages(currentURL) {
+
+      // fin the currentURL's index in the IMAGES array 
+      let index = IMAGES.indexOf(currentURL);
+      // TODO: check if index is  -1 at this point
+  
+      index--;
+      // increment the index 
+      // check if its within bounds necessary 
+      if (index < 0) {
+          index = IMAGES.length -1;
+      }
+      // then return the image URL at the new index
+  
+      return IMAGES[index];
+
+}
+
+
+
 const thumbnailContainer = document.querySelector('[data-container]');
 const outputElement = document.querySelector('[data-output]');
 const modalElement = document.querySelector('[data-modal]');
@@ -51,14 +92,14 @@ function createThumbnail(url) {
 // for each image , call the anonymous function
 // the anonymous function should expect to receive an image url
 function main() {
-IMAGES.forEach(function (planet){
+    IMAGES.forEach(function (planet){
 //  We pass that image URL to createThumbnail function
-let theThumbnail = createThumbnail(planet);
+    let theThumbnail = createThumbnail(planet);
 // displays picture to body
-thumbnailContainer.appendChild(theThumbnail);
-});
+    thumbnailContainer.appendChild(theThumbnail);
+    });
 
-window.addEventListener('keydown', function (event) {
+    window.addEventListener('keydown', function (event) {
 
     // console.log('you pressed a key');
     // console.log(event);
@@ -69,30 +110,37 @@ window.addEventListener('keydown', function (event) {
     console.log('I want to hide the modal!');
     modalElement.classList.add('modal-hidden')
 
-    }
+            }
    
-});
+    });
 
 
 
-modalElement.addEventListener('click', function (event) {
+    modalElement.addEventListener('click', function (event) {
 
     if(event.target === onmousedown); {
     console.log('Close me')
     modalElement.classList.add('modal-hidden')
     }
-});
+    });
 
-window.addEventListener('keydown', function (event) {
- console.log(event.keyCode);
+    window.addEventListener('keydown', function (event) {
+    console.log(event.keyCode);
 
- if (event.keyCode === 37) {
+    if (event.keyCode === 37) {
      console.log('go to the previous image');
- } else if (event.keyCode === 39) {
-     console.log('go to the next image');
- }
+     let current  = outputElement.getAttribute('src');
+     let prev = getPrevImages(current);
+     outputElement.setAttribute('src',prev);
 
-});
+    } else if (event.keyCode === 39) {
+     console.log('go to the next image');
+     let curr = outputElement.getAttribute('src');
+     let next = getNextImages(curr);
+     outputElement.setAttribute('src',next);
+    }
+
+    });
 
 }
 
